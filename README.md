@@ -22,7 +22,7 @@ Building or using the python version is not recommended since the resulting app 
 not needing xcode to build. For the python version, building details are in the readme in the Python Version folder. 
 
 # Usage: 
-After clicking on the app, a violin icon 🎷 should appear in the menu bar. This indicates that the program is running. Changing the track on Apple Music shoud change the desktop wallpaper within 1-2 seconds. Clicking on the violin icon also shows a slider that allows you to scale the size of the artwork compared to the background. There is also an option to refresh the wallpaper if the program doesn't automatically detect a change.
+After clicking on the app, a violin icon 🎷 should appear in the menu bar. This indicates that the program is running. Changing the track on Apple Music should change the desktop wallpaper within 1-2 seconds. Clicking on the violin icon also shows a slider that allows you to scale the size of the artwork compared to the background. There is also an option to refresh the wallpaper if the program doesn't automatically detect a change.
 
 # Screenshots: 
 <img width="1440" alt="Screen Shot 2022-06-04 at 2 53 00 AM" src="https://user-images.githubusercontent.com/59561784/171972526-a5b0801f-7e4d-41a4-95c2-338c6dce9400.png">
