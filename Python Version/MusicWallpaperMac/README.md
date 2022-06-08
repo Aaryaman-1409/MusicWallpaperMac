@@ -16,7 +16,7 @@ After the app opens succesfully, these steps are not required anymore, and the a
 You can also build from scratch in case you don't want to do these steps. Details in the Building section below.
 
 # Usage: 
-After clicking on the app, a violin icon 🎻 should appear in the menu bar. This indicates that the program is running. Changing the track on Apple Music shoud change the desktop wallpaper within 1-2 seconds. Click on the violin icon and press 'Quit' to stop the program.
+After clicking on the app, a violin icon 🎷 should appear in the menu bar. This indicates that the program is running. Changing the track on Apple Music shoud change the desktop wallpaper within 1-2 seconds. Click on the violin icon and press 'Quit' to stop the program.
 
 # Screenshots: 
 <img width="1440" alt="Screen Shot 2022-06-04 at 2 53 00 AM" src="https://user-images.githubusercontent.com/59561784/171972526-a5b0801f-7e4d-41a4-95c2-338c6dce9400.png">
