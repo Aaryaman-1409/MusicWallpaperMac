@@ -4,7 +4,7 @@ Copy-paste the following commands into the terminal while in your directory of c
 
 ```
 git clone https://github.com/Aaryaman-1409/MusicWallpaperMac/
-cd "Python Version/MusicWallpaperMac/src"
+cd "MusicWallpaperMac/Python Version/MusicWallpaperMac/src"
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
