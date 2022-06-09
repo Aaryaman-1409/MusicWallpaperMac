@@ -10,7 +10,7 @@ Simply download and extract the MusicWallpaper.app.zip file from releases. The M
 
 Upon running, you may be prompted by the alert that the app is damaged. This is because I can't pay for the $99 developer license from Apple, and so my app isn't notarized by them. There are two ways to get around this.
 
-1. When opening the app for the first time, right-click the app, then hold option and press open instead of double tapping to open
+1. When opening the app for the first time, right-click the app, then hold option and press open instead of double tapping to open. If it still doesn't work, try the second method.
 2. Enter the command: xattr -d com.apple.quarantine "/path/to/.app" in your terminal. 
 
 After the app opens succesfully, these steps are not required anymore, and the app can be opened normally. 
