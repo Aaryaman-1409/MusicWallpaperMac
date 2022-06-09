@@ -1,7 +1,7 @@
 # MusicWallpaperMac
 A menu-bar app that automatically changes the desktop wallpaper based on the cover art of the current Apple Music song. Uses k-means clustering to find the most dominant color in the cover art and uses this info to generate an aestheically pleasing wallpaper. See screenshots below for examples. Once the app is running, changing songs on Apple Music should change the desktop wallpaper accordingly within 1-2 seconds. 
 
-Note: The app returns to an included default wallpaper if the Music App is quit. To change the default wallpaper, right click the app, click on 'Show Package Contents' and go to Contents/Resources. Here you can replace the defaultWallpaper.jpg with your wallpaper of choice. Make sure that the file you place is named 'defaultWallpaper.jpg'.
+Note: The app has an option to reset the wallpaper to a default wallpaper when quit. To change the default wallpaper, right click the app, click on 'Show Package Contents' and go to Contents/Resources. Here you can replace the defaultWallpaper.jpg with your wallpaper of choice. Make sure that the file you place is named 'defaultWallpaper.jpg'.
 
 # Installation: 
 Simply download and extract the MusicWallpaper.app.zip file from releases. The MusicWallpaper.app file within can then be opened like any other app.
