@@ -23,6 +23,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     var statusItem: NSStatusItem!
     let mainBundle = Bundle.main
+    let defaults = UserDefaults.standard
+    
     // Cocoa Bindings
     // neccessary to put the obj dynamic decorator to make it work with the xib bindings
     // basically tells swift to use the objC versions of these functions. Without this
@@ -39,6 +41,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     var screen_dimension = (1440, 900)
     @objc dynamic var image_scale_in_bg = 2.0
+    
+    let resetDesktopDict:[Bool:String] = [true: "Yes", false:"No"]
+    @objc dynamic var resetDesktop: Bool = false
 
         
     
@@ -68,6 +73,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     //
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+            
+        self.resetDesktop = defaults.bool(forKey: "resetDesktop")
+        self.image_scale_in_bg = (defaults.object(forKey: "sliderRatioVal") as? Double) ?? 2.0
+        
         setupMenus()
         // iTunes emits track change notifications; very handy for UI refreshes
         let dnc = DistributedNotificationCenter.default()
@@ -88,6 +97,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
     
+    func applicationWillTerminate(_ notification: Notification) {
+        defaults.set(self.image_scale_in_bg, forKey: "sliderRatioVal")
+        defaults.set(self.resetDesktop, forKey: "resetDesktop")
+        if let default_path = self.defaultpath, self.resetDesktop{
+            self.setDesktop(default_path)
+        }
+    }
+    
     func setupMenus() {
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         statusItem.button!.title = "🎷"
@@ -97,6 +114,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         menu.addItem(NSMenuItem(title: "Not playing", action: nil, keyEquivalent: ""))
         menu.addItem(NSMenuItem.separator())
         
+        // Slider Item
         menu.addItem(NSMenuItem(title: "Relative Artwork Size:", action: nil, keyEquivalent: ""))
         
         let menuSliderItem = NSMenuItem()
@@ -108,7 +126,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         menuSlider.action = #selector(delegate.updateImageRatio)
         menuSlider.minValue = 0.1
         menuSlider.maxValue = 1
-        menuSlider.floatValue = 0.5
+        menuSlider.floatValue = Float((1 / self.image_scale_in_bg))
         menuSlider.frame.size.width = menu.size.width-20
         menuSlider.frame.size.height = 30
         menuSlider.frame.origin = CGPoint(x: 20, y: 0)
@@ -123,8 +141,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         menu.addItem(menuSliderItem)
         menu.addItem(NSMenuItem.separator())
+        // End of Slider item
         
         menu.addItem(NSMenuItem(title: "Refresh Wallpaper", action: #selector(delegate.updateTrackInfo), keyEquivalent: ""))
+        menu.addItem(NSMenuItem.separator())
+        
+        // Reset Desktop Item
+        let resetDesktopStr = self.resetDesktopDict[self.resetDesktop]!
+        let resetDesktopMenuItem = NSMenuItem(title: "Reset Wallpaper After Quitting: " + resetDesktopStr, action: #selector(delegate.updateResetDesktop), keyEquivalent: "")
+        resetDesktopMenuItem.tag = 20
+        menu.addItem(resetDesktopMenuItem)
+        // End of reset desktop item
         
         menu.addItem(NSMenuItem.separator())
         menu.addItem(NSMenuItem(title: "Quit", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
@@ -134,6 +161,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @objc func updateImageRatio() {
         let slider:NSSlider = (statusItem.menu?.item(withTag: 10)?.view?.subviews[0])! as! NSSlider
         image_scale_in_bg = Double(1/slider.floatValue)
+    }
+    
+    @objc func updateResetDesktop(){
+        self.resetDesktop = !self.resetDesktop
+        let resetDesktopStr = self.resetDesktopDict[self.resetDesktop]!
+        statusItem.menu?.item(withTag: 20)?.title = "Reset Wallpaper After Quitting: " + resetDesktopStr
     }
     
     @objc func updateTrackInfo(){
@@ -158,9 +191,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         else{
             statusItem.menu?.item(withTag: 0)?.title = "Not Playing"
             self.trackAlbum = ("Not Playing" as NSString)
-            if let default_path = self.defaultpath{
-                self.setDesktop(default_path)
-            }
         }
     }
     
