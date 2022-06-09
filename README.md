@@ -27,6 +27,6 @@ After clicking on the app, a violin icon 🎷 should appear in the menu bar. Thi
 # Screenshots: 
 <img width="1440" alt="ScreenShot 1" src="https://github.com/Aaryaman-1409/MusicWallpaperMac/blob/e1fe69e1fc2f24d4e496761807cbeb1c49927449/Screenshots/img1.png">
 
-<img width="1440" alt="Screen Shot 2022-06-04 at 2 52 43 AM" src="https://user-images.githubusercontent.com/59561784/171972621-117c9b93-827d-4ecf-a707-dfefd1de21a0.png">
+<img width="1440" alt="ScreenShot 2" src="https://github.com/Aaryaman-1409/MusicWallpaperMac/blob/e1fe69e1fc2f24d4e496761807cbeb1c49927449/Screenshots/img3.png">
 
-<img width="1440" alt="Screen Shot 2022-06-04 at 2 52 10 AM" src="https://user-images.githubusercontent.com/59561784/171972631-dc8e835c-3ec4-4405-845a-4d14b4af5c06.png">
+<img width="1440" alt="ScreenShot 3" src="https://github.com/Aaryaman-1409/MusicWallpaperMac/blob/e1fe69e1fc2f24d4e496761807cbeb1c49927449/Screenshots/img2.png">
