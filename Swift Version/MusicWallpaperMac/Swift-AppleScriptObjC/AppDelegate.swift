@@ -144,6 +144,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // End of Slider item
         
         menu.addItem(NSMenuItem(title: "Refresh Wallpaper", action: #selector(delegate.updateTrackInfo), keyEquivalent: ""))
+        menu.addItem(NSMenuItem(title: "Type 'killall Dock' in Terminal if wallpaper still stuck", action: nil, keyEquivalent: ""))
         menu.addItem(NSMenuItem.separator())
         
         // Reset Desktop Item
